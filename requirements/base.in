@@ -1,0 +1,24 @@
+# Web framework
+fastapi[standard]
+uvicorn[standard]
+
+# Database
+sqlalchemy[asyncio]
+alembic
+psycopg[binary]        # PostgreSQL async driver
+
+# Validation & settings
+pydantic-settings
+
+# Auth
+python-jose[cryptography]  # JWT
+argon2-cffi            # password hash
+
+# Background jobs
+celery[rabbitmq]
+
+# Cache & rate limiting
+redis[hiredis]
+
+# Observability
+python-json-logger     # structured logs in JSON

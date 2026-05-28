@@ -1,0 +1,17 @@
+-r base.in
+
+# Testing
+pytest
+pytest-asyncio
+pytest-cov
+httpx                  # async HTTP client for testing
+
+# Linting & formatting
+ruff
+black
+mypy
+pydantic[mypy]
+
+# Type stubs
+types-python-jose
+types-redis
