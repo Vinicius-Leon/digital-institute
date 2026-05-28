@@ -8,5 +8,7 @@
     }
   },
   "python.typeCheckingMode": "off",
-  "mypy-type-checker.args": ["--config-file=pyproject.toml"]
+  "mypy-type-checker.args": ["--config-file=pyproject.toml"],
+  "python.envFile": "${workspaceFolder}/.env",
+  "python.terminal.useEnvFile": true
 }
