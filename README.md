@@ -1,5 +1,8 @@
 # Instituto Digital API
 
+[![CI](https://github.com/Vinicius-Leon/digital-institute/actions/workflows/ci.yml/badge.svg)](https://github.com/Vinicius-Leon/digital-institute/actions/workflows/ci.yml)
+[![CodeQL](https://github.com/Vinicius-Leon/digital-institute/actions/workflows/codeql.yml/badge.svg)](https://github.com/Vinicius-Leon/digital-institute/actions/workflows/codeql.yml)
+
 Management system for Digital Institute — courses, enrollments, certificates, and full operations.
 
 ## Stack
@@ -85,3 +88,13 @@ pytest --cov=src --cov-report=term-missing
 - [ADRs — architecture decision records](docs/02-architecture/decisions/)
 - [Contributing](CONTRIBUTING.md)
 - [Security](SECURITY.md)
+
+## Security
+
+This project uses automated security tooling:
+
+- **Secret scanning** — GitHub scans every commit for exposed credentials
+- **Dependabot** — automated alerts and PRs for vulnerable dependencies
+- **CodeQL** — static analysis for code vulnerabilities on every push
+
+To report a vulnerability, see [SECURITY.md](SECURITY.md).
