@@ -2,6 +2,8 @@ from fastapi import APIRouter, Depends, status
 from sqlalchemy.ext.asyncio import AsyncSession
 
 from institute.database import get_db
+from institute.dependencies import get_current_user
+from institute.modules.auth.models import User
 from institute.modules.auth.schemas import (
     LoginRequest,
     TokenResponse,
@@ -38,3 +40,14 @@ async def login(
 ) -> TokenResponse:
     service = AuthService(db)
     return await service.login(data.email, data.password)
+
+
+@router.get(
+    "/me",
+    response_model=UserResponse,
+    summary="Return the authenticated user",
+)
+async def get_me(
+    current_user: User = Depends(get_current_user),
+) -> UserResponse:
+    return UserResponse.model_validate(current_user)

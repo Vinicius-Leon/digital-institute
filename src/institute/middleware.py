@@ -4,7 +4,7 @@ import uuid
 from collections.abc import Awaitable, Callable
 
 from fastapi import Request, Response
-from pythonjsonlogger import jsonlogger
+from pythonjsonlogger import json as jsonlogger
 
 from institute.config import get_settings
 
