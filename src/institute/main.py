@@ -7,6 +7,7 @@ from fastapi.middleware.cors import CORSMiddleware
 from institute.config import get_settings
 from institute.exceptions import register_exception_handlers
 from institute.middleware import request_id_middleware, setup_logging
+from institute.modules.auth.router import router as auth_router
 from institute.modules.health.router import router as health_router
 
 settings = get_settings()
@@ -55,6 +56,7 @@ def create_app() -> FastAPI:
 
     # Routers
     app.include_router(health_router, prefix="/api/v1")
+    app.include_router(auth_router, prefix="/api/v1")
 
     return app
 
