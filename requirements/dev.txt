@@ -199,7 +199,7 @@ pytokens==0.4.1
     # via black
 pyyaml==6.0.3
     # via uvicorn
-redis[hiredis]==7.4.0
+redis[hiredis]==8.0.0
     # via -r requirements/base.in
 rich==15.0.0
     # via
