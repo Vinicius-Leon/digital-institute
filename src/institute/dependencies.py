@@ -15,9 +15,9 @@ async def get_current_user(
     db: AsyncSession = Depends(get_db),
 ) -> User:
     """
-    Dependency que extrai e valida o token JWT, retornando o usuário atual.
+    Dependency that extracts and validates the JWT token, returning the current user.
 
-    Use com Depends(get_current_user) em qualquer endpoint que exija autenticação.
+    Use with Depends(get_current_user) on any endpoint that requires authentication.
     """
     import uuid
 

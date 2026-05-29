@@ -14,7 +14,7 @@ def mock_db():
 @pytest.mark.unit
 class TestHealthService:
     async def test_health_returns_ok_when_db_responds(self, mock_db):
-        """Health deve retornar ok quando o banco responde."""
+        """Health should return ok when the bank responds."""
         mock_db.execute = AsyncMock(return_value=MagicMock())
 
         service = HealthService(mock_db)
@@ -24,7 +24,7 @@ class TestHealthService:
         assert result.dependencies["database"].status == "ok"
 
     async def test_health_returns_unavailable_when_db_fails(self, mock_db):
-        """Health deve retornar unavailable quando o banco falha."""
+        """Health should return unavailable when the bank fails."""
         mock_db.execute = AsyncMock(side_effect=Exception("connection refused"))
 
         service = HealthService(mock_db)
@@ -35,7 +35,7 @@ class TestHealthService:
         assert "connection refused" in result.dependencies["database"].detail
 
     async def test_health_includes_latency_when_db_ok(self, mock_db):
-        """Health deve incluir latência quando o banco responde."""
+        """Health should include latency when the bank responds."""
         mock_db.execute = AsyncMock(return_value=MagicMock())
 
         service = HealthService(mock_db)

@@ -5,7 +5,7 @@ import pytest
 
 @pytest.fixture(autouse=True)
 def celery_eager_mode():
-    """Faz o Celery executar tasks de forma síncrona nos testes."""
+    """Makes Celery execute tasks synchronously in tests."""
     from institute.worker import celery_app
 
     celery_app.conf.task_always_eager = True
@@ -17,10 +17,10 @@ def celery_eager_mode():
 @pytest.mark.unit
 class TestSendNotificationTask:
     def test_send_notification_returns_logged_status(self):
-        """Task deve executar e retornar status logged."""
+        """Task should execute and return logged status."""
         from institute.tasks import send_notification
 
-        # Chama a função diretamente, sem passar pelo broker
+        # It calls the function directly, without going through the broker.
         result = send_notification(
             user_id="123",
             event="test_event",
@@ -31,7 +31,7 @@ class TestSendNotificationTask:
         assert result["event"] == "test_event"
 
     def test_send_notification_logs_processing(self):
-        """Task deve logar o processamento."""
+        """Task should log the processing."""
         from institute.tasks import send_notification
 
         with patch("institute.tasks.logger") as mock_logger:
@@ -48,7 +48,7 @@ class TestSendNotificationTask:
 @pytest.mark.unit
 class TestWorkerConfig:
     def test_celery_app_is_configured(self):
-        """Worker deve estar configurado com as opções corretas."""
+        """Worker should be configured with the correct options."""
         from institute.worker import celery_app
 
         assert celery_app.conf.task_serializer == "json"
