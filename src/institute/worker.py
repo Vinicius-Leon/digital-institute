@@ -5,10 +5,10 @@ from institute.config import get_settings
 settings = get_settings()
 
 celery_app = Celery(
-    "instituto",
+    "institute",
     broker=settings.rabbitmq_url,
     backend=settings.redis_url,
-    include=["instituto.tasks"],  # modules with tasks
+    include=["institute.tasks"],  # modules with tasks
 )
 
 celery_app.conf.update(
