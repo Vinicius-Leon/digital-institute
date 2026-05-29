@@ -1,5 +1,6 @@
 import logging
 from datetime import UTC, datetime, timedelta
+from typing import Any
 
 from argon2 import PasswordHasher
 from argon2.exceptions import VerificationError, VerifyMismatchError
@@ -84,7 +85,7 @@ class AuthService:
         )
 
     @staticmethod
-    def verify_token(token: str) -> dict:
+    def verify_token(token: str) -> dict[str, Any]:
         try:
             payload = jwt.decode(
                 token,

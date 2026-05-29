@@ -28,6 +28,7 @@ services:
       - DATABASE_URL=postgresql+psycopg://institute:password@postgres:5432/institute_db
       - REDIS_URL=redis://redis:6379/0
       - RABBITMQ_URL=amqp://guest:guest@rabbitmq:5672/
+      - SECRET_KEY=dev-secret-key-do-not-use-in-production
       - ENVIRONMENT=development
     volumes:
       - ./src:/app/src
